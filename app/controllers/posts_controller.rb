@@ -31,7 +31,7 @@ class PostsController < ApplicationController
             render :new
         else
             if @post.save
-                flash[:notice] = "Image is successfully created!"
+                flash[:notice] = "Post is successfully created!"
                 redirect_to @post
             else
                 render 'new'
@@ -41,7 +41,7 @@ class PostsController < ApplicationController
 
     def update
         if @post.update(post_params)
-            flash[:notice] = "Image is successfully Edited"
+            flash[:notice] = "Post is successfully Edited"
             redirect_to @post
         else
             render 'edit'
@@ -50,13 +50,13 @@ class PostsController < ApplicationController
 
     def destroy
         if @post.destroy
-            flash[:notice] = "Image is Successfully Deleted!"
+            flash[:notice] = "Post is Successfully Deleted!"
             redirect_to posts_path
         end
     end
 
     def confirm
-        @post = Image.new(post_params)
+        @post = Post.new(post_params)
         @post.user = current_user
         render :new if @post.invalid?
     end
