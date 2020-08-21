@@ -1,35 +1,45 @@
-<div class="container mt-6">
-    <%= form_with(model: @user, local: true) do |f| %>
-        <div class="row justify-content-md-center">
-            <div class="col-5 mt-6">
-                <%= render 'shared/errors', obj: @user %>
-                    <div class="card shadow text-center">
-                        <div class="card-body">
-                            <p class="head">Instagram</p>
-                            <p class="text">Sign up to see photos and videos from your friends.</p>
-                            <p class="card-text text-left"><%= f.text_field:username,
-                            class: "form-control shadow-sm py-4 mt-2", placeholder: "Enter a username"%></p>
-                            <p class="card-text text-center"><%= f.email_field :email,
-                            class: "form-control shadow-sm py-4 mb-4", placeholder: "Enter your email address" %></p>
-                            <p class="card-text text-center"><%= f.password_field :password,
-                            class: "form-control shadow-sm py-4 mb-4", placeholder: "Choose a password" %></p>
-                            <p class="card-text text-left mt-4">
-                                <%= f.label :upload_profile_picture, class: "badge badge-pill badge-secondary p-3",
-                                            for: "upload-photo" %>
-                                <%= f.file_field :profile, id: "upload-photo" %>
-                            </p>
-                            <p>
-                                <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class: "btn btn-primary text-white btn-lg btn-block login-text" ) %>
-                            </p>
-                            <p class="text">By signing up, you agree to our Terms, Data Policy and Cookies Policy.</p>
-                            <div class="card-footer">
-                                <p class="text">
-                                    Have an account? <%= link_to 'Log In', login_path %>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-            </div>
+<div class="container mt-5">
+  <%= form_with(model: @user, local: true) do |f| %>
+    <div class="row justify-content-md-center">
+      <div class="col-4 mt-5">
+        <%= render 'shared/errors', obj: @user %>
+        <div class="card text-center">
+          <div class="card-header bg-white text-center">
+            <h1 class="my-pre-text-brand m-3"><%= "#{type}" %></h1>
+            <p class="text-muted font-weight-bold m-4"><%= "#{text}" %></p>
+          </div>
+          <div class="card-body", style="height: 450px;">
+            <p class="card-text text-center mt-3"><%= f.text_field :username,
+            class: "form-control my-input", placeholder: "Username" %></p>
+            <p class="card-text text-center mt-4"><%= f.email_field :email,
+            class: "form-control my-input", placeholder: "Email address" %></p>
+            <p class="card-text text-center mt-4"><%= f.password_field :password,
+            class: "form-control my-input", placeholder: "Password" %></p>
+            <p class="card-text text-left mt-4">
+              <%= f.label :upload_profile_picture, class: "badge badge-pill my-badge p-3",
+                          for: "upload-photo" %>
+              <%= f.hidden_field :profile_cache %>
+              <%= f.file_field :profile, id: "upload-photo" %>
+            </p>
+            <p class="mt-2">
+              <%= f.submit "#{name}",
+              class: "btn btn-primary text-white btn-sm btn-block" %>
+            </p>
+            <p class="card-text text-muted p-3">
+            <small><%= "#{footer_text}" %></small>
+            </p>
+          </div>
         </div>
-    <% end %>
+        <% if login_box %>
+          <div class="card text-center mt-3">
+            <div class="card-body">
+              <p class="card-text">
+              Have an account? <%= link_to 'Log In', login_path %>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>
