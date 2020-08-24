@@ -2,7 +2,7 @@
   <% @posts.each do |post| %>
     <div class="row justify-content-md-center">
       <div class="col-8 mt-3">
-        <div class="card text-center shadow-sm p-3">
+        <div class="card text-center shadow-sm p-3" style="width: 50rem;">
           <div class="card-header bg-white text-left text-primary font-weight-bold">
             <h5><%= link_to post.user.username, user_path(post.user) %></h5>
           </div>

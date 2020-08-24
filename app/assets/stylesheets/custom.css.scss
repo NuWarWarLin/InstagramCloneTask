@@ -9,11 +9,12 @@ body {
   height: auto;
   margin-bottom: 5rem;
   margin-top: 5rem !important;
+  width: auto;
 }
 
 .navbar {
   margin-top: 0;
-  background-color: #2f55a4 !important;
+  background-color: #B09F9B !important;
   height: 3.7rem;
   font-size: 0.9rem;
   margin-bottom: 5rem;
@@ -28,9 +29,11 @@ body {
   justify-content: end;
 }
 
-.nav-text {
+.my-text {
   font-size: 1.25rem !important;
   color:white !important;
+  font-family: cursive !important;
+  font-style: italic !important;
 }
 
 .nav-link:hover {
@@ -43,7 +46,7 @@ footer {
     height: 52px;
     bottom: 0 !important;
     position: fixed;
-    background-color:whitesmoke;
+    background-color:#B09F9B;
     display: flex !important;
     align-items: center;
     justify-content: center;
@@ -52,5 +55,6 @@ footer {
   footer p {
     margin-bottom: 0;
     color:white;
-    font-family: Sans-Serif,Seri, Arial;
+    font-family: cursive !important;
+    font-style: italic !important;
   }

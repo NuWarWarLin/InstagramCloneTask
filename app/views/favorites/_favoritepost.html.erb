@@ -1,12 +1,8 @@
-<div class="container">
   <% @posts.each do |post| %>
-    <div class="row justify-content-md-center">
-      <div class="col-8 mt-3">
-        <div class="card text-center shadow-sm p-3">
-          <div class="card-header bg-white text-left text-primary font-weight-bold">
+          <div class="card-header bg-white text-left text-primary font-weight-bold" >
             <h5><%= link_to post.user.username, user_path(post.user) %></h5>
           </div>
-          <div class="card-body">
+          <div class="card-body" style="width: 40rem;">
             <p class="card-text text-left"><%= post.name %></p>
             <p class="card-text text-center"><%= image_tag(post.picture.url, size: "570x300") if post.picture? %></p>
             <%= link_to 'View', post_path(post), class: "btn btn-outline-info px-4" %>
@@ -20,8 +16,4 @@
             <small>Created <%= time_ago_in_words(post.created_at) %> ago,
             edited <%= time_ago_in_words(post.updated_at) %> ago</small>
           </div>
-        </div>
-      </div>
-    </div>
   <% end %>
-</div>

@@ -4,14 +4,8 @@
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-8 mt-3">
-            <div class="card text-center">
-                <div class="card-header bg-white text-center text-primary font-weight-bold">
-                    <h4><%= link_to @user.username, user_path(@user) %></h4>
-                    <%= link_to image_tag(@user.profile.url, size: "120",class: "rounded-circle"), user_path(@user),class: "nav-link" %>
-                </div>
             <div class="card-body">
                 <div class="card-text text-center"><%= render 'favoritepost' %></div>
-            </div>
             </div>
         </div>
     </div>
