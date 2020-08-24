@@ -9,7 +9,7 @@
     name = Faker::Name.first_name
     email = Faker::Internet.email
     password = "password"
-    User.create!(username: username,
+    User.create!(username: name,
                  email: email,
                  password: password,
                  )
