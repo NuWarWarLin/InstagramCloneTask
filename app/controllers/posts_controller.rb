@@ -31,6 +31,7 @@ class PostsController < ApplicationController
             render :new
         else
             if @post.save
+                PostmailerMailer.post_send_mail(@post.user).deliver
                 flash[:notice] = "Congratulations! You are post is successfully created!"
                 redirect_to @post
             else

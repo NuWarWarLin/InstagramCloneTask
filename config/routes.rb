@@ -16,5 +16,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   resources :favorites
+
+  mount LetterOpenerWeb::Engine, at: "/letter_opener"
   
 end
