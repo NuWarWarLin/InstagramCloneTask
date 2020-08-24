@@ -1,8 +1,6 @@
   <% @posts.each do |post| %>
-          <div class="card-header bg-white text-left text-primary font-weight-bold" >
-            <h5><%= link_to post.user.username, user_path(post.user) %></h5>
-          </div>
-          <div class="card-body" style="width: 40rem;">
+          <div class="card-body bg-white" style="width: 40rem;">
+          <p class="card-text my-text text-left"><%= link_to post.user.username, user_path(post.user) %></p>
             <p class="card-text text-left"><%= post.name %></p>
             <p class="card-text text-center"><%= image_tag(post.picture.url, size: "570x300") if post.picture? %></p>
             <%= link_to 'View', post_path(post), class: "btn btn-outline-info px-4" %>
@@ -12,7 +10,7 @@
               class: "btn btn-outline-danger px-4" %>
             <% end %>
           </div>
-          <div class="card-footer text-muted bg-white">
+          <div class="card-footer text-muted bg-white" style="width: 40rem;">
             <small>Created <%= time_ago_in_words(post.created_at) %> ago,
             edited <%= time_ago_in_words(post.updated_at) %> ago</small>
           </div>
