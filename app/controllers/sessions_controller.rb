@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
             flash[:notice] = "Congratulations! Logged in successfully"
             redirect_to user
         else
-            flash.now[:alert] = "There is somethin wrong with you own email or password!"
+            flash.now[:alert] = "There is something wrong with you own email or password!"
             render 'new'
        end
     end
