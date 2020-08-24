@@ -31,7 +31,7 @@ class PostsController < ApplicationController
             render :new
         else
             if @post.save
-                flash[:notice] = "Post is successfully created!"
+                flash[:notice] = "Congratulations! You are post is successfully created!"
                 redirect_to @post
             else
                 render 'new'
@@ -41,7 +41,7 @@ class PostsController < ApplicationController
 
     def update
         if @post.update(post_params)
-            flash[:notice] = "Post is successfully Edited"
+            flash[:notice] = "Congratulations! You are post is successfully Edited!"
             redirect_to @post
         else
             render 'edit'
@@ -50,7 +50,7 @@ class PostsController < ApplicationController
 
     def destroy
         if @post.destroy
-            flash[:notice] = "Post is Successfully Deleted!"
+            flash[:notice] = "Congratulations! You are post is successfully Deleted!"
             redirect_to posts_path
         end
     end
@@ -73,7 +73,7 @@ class PostsController < ApplicationController
 
     def require_same_user
         if current_user != @post.user
-            flash[:alert] = "You can only edit or delete your own posts"
+            flash[:alert] = "You can't delete or edit other users' data!"
             redirect_to @post
         end
     end

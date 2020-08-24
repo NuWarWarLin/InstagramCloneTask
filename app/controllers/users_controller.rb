@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
       if @user.save
         session[:user_id] = @user.id
-        flash[:notice] = "Welcome #{@user.username}, you have successfully signed up"
+        flash[:notice] = "Welcome #{@user.username}, from my blog you have successfully signed up! Congratulations!"
         redirect_to @user
       else
         render 'new'
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   
     def update
       if @user.update(user_params)
-        flash[:notice] = "Your account information was successfully updated"
+        flash[:notice] = "Successfully updated your account infromation!"
         redirect_to @user
       else
         render 'edit'
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     def destroy
       @user.destroy
       session[:user_id] = nil
-      flash[:notice] = "Account and all associated posts successfully deleted"
+      flash[:notice] = "Successfully deleted your account and all associated posts"
       redirect_to root_path
     end
   
@@ -57,7 +57,7 @@ class UsersController < ApplicationController
   
     def require_same_user
       if current_user != @user
-        flash[:alert] = "You can only edit your own account"
+        flash[:alert] = "You can't edit other users' data"
         redirect_to @user
       end
     end
