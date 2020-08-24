@@ -14,15 +14,14 @@
         <div class="nav-item col-md-3">
           <%= link_to 'Create Post', new_post_path, class: "nav-link my-text " %>
         </div>
+        <div class="nav-item col-md-3">
+          <%= link_to 'Favorite', favorites_path, class: "nav-link my-text " %>
+        </div>
       </div>
-      <div class="navbar-nav col-md-4">
-        <div class="nav-item col-md-5">
-          <%= link_to "#{current_user.username}", user_path(current_user),
-          class: "nav-link my-text" %>
-        </div>
-        <div class="nav-item col-md-5">
-          <%= link_to 'Log Out', logout_path, class: "nav-link my-text", method: :delete %>
-        </div>
+      <div class="navbar-nav col-md-5">
+        <%= link_to image_tag(current_user.profile.url, size: "30", class: "rounded-circle nav-link my-text"), user_path(current_user) %>
+        <%= link_to "#{current_user.username}", user_path(current_user), class: "nav-link my-text" %>
+        <%= link_to 'Log Out', logout_path, class: "nav-link my-text", method: :delete %>
       </div>
   </div>
 </nav>

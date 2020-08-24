@@ -13,13 +13,11 @@
           <div class="card-body">
             <div class="card-text text-center"><%= @post.name %></div>
             <div class="m-4"><%= image_tag(@post.picture.url, size: "570x300") if @post.picture? %></div>
-          <% unless @post.user_id == current_user.id %>
             <% if @favorite.present? %>
               <%= link_to 'Remove from favorite', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-outline-danger' %>
             <% else %>
               <%= link_to 'Add to favorite', favorites_path(post_id: @post.id), method: :post, class: 'btn btn-outline-primary' %>
             <% end %>
-          <% end %>
             <% if logged_in? && @post.user == current_user %>
               <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-outline-primary px-4" %>
               <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure?" },
