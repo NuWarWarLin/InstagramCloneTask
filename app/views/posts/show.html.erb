@@ -1,0 +1,29 @@
+<%= render 'shared/navigation' %>
+<%= render 'shared/messages' %>
+
+<div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-8 mt-3">
+        <h1 class="text-center mt-0 mb-4">Post Details</h1>
+        <div class="card text-center">
+          <div class="card-header bg-white text-center text-primary font-weight-bold">
+            <h4><%= link_to @post.user.username, user_path(@post.user) %></h4>
+            <%= link_to image_tag(@post.user.profile.url, size: "120",class: "rounded-circle"), user_path(@post.user),class: "nav-link" %>
+          </div>
+          <div class="card-body">
+            <div class="card-text text-center"><%= @post.name %></div>
+            <div class="m-4"><%= image_tag(@post.picture.url, size: "570x300") if @post.picture? %></div>
+            <% if logged_in? && @post.user == current_user %>
+              <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-outline-primary px-4" %>
+              <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure?" },
+              class: "btn btn-outline-danger px-4" %>
+            <% end %>
+          </div>
+          <div class="card-footer text-muted bg-white">
+            <small>Created <%= time_ago_in_words(@post.created_at) %> ago,
+            edited <%= time_ago_in_words(@post.updated_at) %> ago</small>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

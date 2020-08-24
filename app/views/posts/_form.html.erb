@@ -1,0 +1,35 @@
+ 
+<div class="container mt-5">
+  <%= form_with(model: @post, local: true, url: choose_new_or_edit_post) do |f| %>
+    <div class="row justify-content-md-center">
+      <div class="col-8 mt-3">
+        <%= render 'shared/errors', obj: @post %>
+        <div class="card text-center">
+          <div class="card-header bg-grey text-center font-weight-bold my-font-size">
+            <p><%= post %></p>
+          </div>
+
+          <div class="card-body" style="height: 27rem;">
+
+            <p class="card-text text-center">
+              <%= f.text_area :name, rows: "14", autofocus: true,
+              class: "form-control", placeholder: "What's on your mind? #{current_user.username}" %>
+            </p>
+
+            <p class="card-text text-left">
+              <%= f.file_field :picture %>
+              <%= f.hidden_field :picture_cache %>
+            </p>
+
+          </div>
+
+          <div class="card-footer">
+            <p>
+              <%= f.submit "#{name}", class: "btn btn-primary text-white btn-lg btn-block login-text" %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
