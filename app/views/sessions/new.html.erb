@@ -1,33 +1,27 @@
-<div class="login container">
+<div class="container">
   <div class="row">
-    <div class="col-6">
     <%= render 'shared/messages' %>
-    </div>
-    <div class="col-6">
-      <div class="container">
-        <%= form_with(scope: :session, url: login_path, local: true) do |f| %>
-          <div class="row justify-content-md-center">
-            <div class="col-10">
-              <div class="card shadow text-center">
-                <div class="card-body", style="height: 250px;">
-                  <p class="card-text text-center"><%= f.email_field :email, autofocus: true,
-                  class: "form-control shadow-sm py-4 mt-2", placeholder: "Email address" %></p>
-                  <p class="card-text text-center"><%= f.password_field :password,
-                  class: "form-control shadow-sm py-4 mb-4", placeholder: "Password" %></p>
-                  <p>
-                    <%= f.submit "Log In", class: "btn btn-primary text-white btn-lg btn-block font-weight-bold" %>
-                  </p>
-                </div>
-                <div class="card-footer">
-                  <p>
-                    Don't you have an account please click sign up link to create account? <%= link_to 'Sign Up', signup_path %>
-                  </p>
-                </div>
+      <%= form_with(scope: :session, url: login_path, local: true, class: "mx-auto") do |f| %>
+        <div class="row justify-content-md-center">
+          <div class="col-10">
+            <div class="card shadow text-center">
+              <div class="card-body", style="height: 250px;">
+                <p class="card-text text-center"><%= f.email_field :email, autofocus: true,
+                class: "form-control shadow-sm py-4 mt-2", placeholder: "Email address" %></p>
+                <p class="card-text text-center"><%= f.password_field :password,
+                class: "form-control shadow-sm py-4 mb-4", placeholder: "Password" %></p>
+                <p>
+                  <%= f.submit "Log In", class: "btn btn-primary text-white btn-lg btn-block font-weight-bold" %>
+                </p>
+              </div>
+              <div class="card-footer">
+                <p>
+                  Don't you have an account please click sign up link to create account? <%= link_to 'Sign Up', signup_path %>
+                </p>
               </div>
             </div>
           </div>
-        <% end %>
-      </div>
-    </div>
+        </div>
+      <% end %>
   </div>
 </div>
